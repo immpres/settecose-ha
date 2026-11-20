@@ -1,0 +1,102 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Settecose verbinden",
+        "description": "Lege in der Settecose-App unter Mehr › Home Assistant ein Token an und füge es hier zusammen mit der dort angezeigten Adresse ein.",
+        "data": {
+          "url": "Adresse",
+          "token": "Token"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Neues Settecose-Token",
+        "description": "Das Token funktioniert nicht mehr. Lege in der Settecose-App ein neues für denselben Space an.",
+        "data": {
+          "token": "Token"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Das Token ist ungültig, abgelaufen oder widerrufen.",
+      "cannot_connect": "Settecose ist unter dieser Adresse nicht erreichbar.",
+      "other_space": "Dieses Token gehört zu einem anderen Space."
+    },
+    "abort": {
+      "already_configured": "Dieser Space ist schon verbunden.",
+      "reauth_successful": "Token aktualisiert."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Settecose-Optionen",
+        "data": {
+          "scan_interval": "Abfrage alle … Sekunden",
+          "presence": "Aufgaben melden, wenn eine Person an einem Settecose-Ort ankommt"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "open_tasks": {
+        "name": "Offene Aufgaben"
+      },
+      "items": {
+        "name": "Items"
+      },
+      "places_on_map": {
+        "name": "Orte auf der Karte"
+      }
+    }
+  },
+  "services": {
+    "add_task": {
+      "name": "Aufgabe anlegen",
+      "description": "Legt in Settecose eine Aufgabe an.",
+      "fields": {
+        "title": {
+          "name": "Titel",
+          "description": "Was, z. B. Milch."
+        },
+        "target": {
+          "name": "Ziel",
+          "description": "Name oder Pfad eines Orts oder Ortstyps, oder eine bestehende Aufgaben-Gruppe (Person, Item)."
+        },
+        "type": {
+          "name": "Typ",
+          "description": "kaufen, abholen, bringen, zurueckgeben, erledigen oder aufraeumen."
+        }
+      }
+    },
+    "tasks_at": {
+      "name": "Aufgaben an einem Ort",
+      "description": "Liefert die offenen Aufgaben, die an einem Settecose-Ort erscheinen, wie «Ich bin bei …» in der App.",
+      "fields": {
+        "location": {
+          "name": "Ort",
+          "description": "Name, Pfad oder ID des Settecose-Orts."
+        },
+        "zone": {
+          "name": "Zone",
+          "description": "Alternativ eine Zone; der passende Ort wird über Name oder Lage gefunden."
+        }
+      }
+    },
+    "import_zone": {
+      "name": "Lage aus Zone übernehmen",
+      "description": "Setzt Lage und Radius eines Settecose-Orts aus einer Home-Assistant-Zone.",
+      "fields": {
+        "zone": {
+          "name": "Zone",
+          "description": "Zone, die übernommen wird."
+        },
+        "location": {
+          "name": "Ort",
+          "description": "Name, Pfad oder ID des Settecose-Orts."
+        }
+      }
+    }
+  }
+}

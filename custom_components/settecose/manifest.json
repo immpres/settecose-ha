@@ -1,0 +1,13 @@
+{
+  "domain": "settecose",
+  "name": "Settecose",
+  "codeowners": ["@aysmile"],
+  "config_flow": true,
+  "dependencies": ["person", "zone"],
+  "documentation": "https://github.com/immpres/settecose-ha",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/immpres/settecose-ha/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}

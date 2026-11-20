@@ -1,0 +1,102 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect Settecose",
+        "description": "Create a token in the Settecose app under More › Home Assistant and paste it here together with the address shown there.",
+        "data": {
+          "url": "Address",
+          "token": "Token"
+        }
+      },
+      "reauth_confirm": {
+        "title": "New Settecose token",
+        "description": "The token no longer works. Create a new one for the same space in the Settecose app.",
+        "data": {
+          "token": "Token"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "The token is invalid, expired or revoked.",
+      "cannot_connect": "Settecose is not reachable at this address.",
+      "other_space": "This token belongs to a different space."
+    },
+    "abort": {
+      "already_configured": "This space is already connected.",
+      "reauth_successful": "Token updated."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Settecose options",
+        "data": {
+          "scan_interval": "Update interval (seconds)",
+          "presence": "Report tasks when a person arrives at a Settecose place"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "open_tasks": {
+        "name": "Open tasks"
+      },
+      "items": {
+        "name": "Items"
+      },
+      "places_on_map": {
+        "name": "Places on the map"
+      }
+    }
+  },
+  "services": {
+    "add_task": {
+      "name": "Add task",
+      "description": "Creates a task in Settecose.",
+      "fields": {
+        "title": {
+          "name": "Title",
+          "description": "What, e.g. Milk."
+        },
+        "target": {
+          "name": "Target",
+          "description": "Name or path of a place or place type, or an existing task group (person, item)."
+        },
+        "type": {
+          "name": "Type",
+          "description": "kaufen, abholen, bringen, zurueckgeben, erledigen or aufraeumen."
+        }
+      }
+    },
+    "tasks_at": {
+      "name": "Tasks at a place",
+      "description": "Returns the open tasks that show at a Settecose place, as in «I am at …» in the app.",
+      "fields": {
+        "location": {
+          "name": "Place",
+          "description": "Name, path or ID of the Settecose place."
+        },
+        "zone": {
+          "name": "Zone",
+          "description": "Alternatively a zone; the matching place is found by name or position."
+        }
+      }
+    },
+    "import_zone": {
+      "name": "Take position from zone",
+      "description": "Sets the position and radius of a Settecose place from a Home Assistant zone.",
+      "fields": {
+        "zone": {
+          "name": "Zone",
+          "description": "Zone to take over."
+        },
+        "location": {
+          "name": "Place",
+          "description": "Name, path or ID of the Settecose place."
+        }
+      }
+    }
+  }
+}

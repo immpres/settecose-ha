@@ -1,0 +1,47 @@
+add_task:
+  fields:
+    title:
+      required: true
+      example: Milch
+      selector:
+        text:
+    target:
+      required: true
+      example: Supermarkt
+      selector:
+        text:
+    type:
+      default: kaufen
+      selector:
+        select:
+          options:
+            - kaufen
+            - abholen
+            - bringen
+            - zurueckgeben
+            - erledigen
+            - aufraeumen
+
+tasks_at:
+  fields:
+    location:
+      example: Wohnung › Keller
+      selector:
+        text:
+    zone:
+      selector:
+        entity:
+          domain: zone
+
+import_zone:
+  fields:
+    zone:
+      required: true
+      selector:
+        entity:
+          domain: zone
+    location:
+      required: true
+      example: Zuhause
+      selector:
+        text:
